@@ -97,7 +97,7 @@ const preload = () => {
   
 		  this.data = {
   
-			  text: 'DAY\nTOÑO',
+			  text: 'DAY\n y \nTOÑO',
 			  amount: 1500,
 			  particleSize: 1,
 			  particleColor: 0xffffff,

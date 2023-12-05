@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Webleb</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+  <link href="styles.css" rel="stylesheet">
+  <script src="main.js"></script>
+<script type="x-shader/x-vertex" id="vertexshader">
+
+  attribute float size;
+  attribute vec3 customColor;
+  varying vec3 vColor;
+
+  void main() {
+
+    vColor = customColor;
+    vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+    gl_PointSize = size * ( 300.0 / -mvPosition.z );
+    gl_Position = projectionMatrix * mvPosition;
+
+  }
+
+</script>
+<script type="x-shader/x-fragment" id="fragmentshader">
+
+ uniform vec3 color;
+ uniform sampler2D pointTexture;
+
+ varying vec3 vColor;
+
+ void main() {
+
+   gl_FragColor = vec4( color * vColor, 1.0 );
+   gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
+
+ }
+</script>
+  </head>
+  <body>
+    <div id="magic"></div>
+    <div class="playground">
+      <div class="bottomPosition">
+        <H1> Justo cuando ya no había obstáculos. Te me fuiste muy lejos, Los tiempos no nos ayudaron, <br>
+            pero por algo pasan las cosas. Despues de tanto pensar por fin me decidí en hacerte una pregunta <br>
+            NO LA HACIA <br>
+            Porque no me gustaba mucho la idea hacertela así virtual, siempre quise que fuera en persona pero pues no se pudo. <br>
+    
+            Aún así que estuve pensando la mejor manera y la más bonita hacerte mi pregunta y quizá mi lado perfeccionista quería elegir <br>
+            una buena fecha para poder hacértela pero creo que ya es necesario decirla porque lo importante es hacer el día sea importante.
+            <br>
+            Asi que la pregunta es:
+        </H1>
+    
+        <a  href="index.html">click</a>
+      </div>
+    </div>
+</body>
+</html>
